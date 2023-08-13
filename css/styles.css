@@ -7,6 +7,7 @@
   --slate: #434455;
   --ocean: #404bbf;
   --grey: #2E2F42B2;
+  --lightslate: #8E8F99;
 }
 .visually-hidden {
   position: absolute;
@@ -315,31 +316,37 @@ ol {
 }
 
 .icon-team {
-
-  display: flex;
-  gap: 24px;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-}
-.icon-link{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--iris);
-  border-radius: 50%;
+  gap: 24px;
+}
+
+.icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
 
+}
+.link-svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--iris);
+  border-radius: 50%;
+  fill: var(--cloud);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.icon-team-svg {
-  fill: var(--cloud);
-}
-.icon-link:hover,
-.icon-link:focus {
+.link-svg:hover,
+.link-svg:focus {
   background-color: var(--ocean);
-}
+  }
+
 
 /* Customers */
 
@@ -349,31 +356,38 @@ ol {
   padding-bottom: 120px;
 }
 .name-customers {
-  padding-bottom: 72px;
+  margin-bottom: 72px;
   color: var(--navyblue);
   text-align: center;
   font-size: 36px;
-  line-height: 1.1;
+  line-height: 1.11;
   letter-spacing: 0.02em;
   text-transform: capitalize;
 }
-.customers {
+
+.customers-list {
   display: flex;
-  justify-content: space-between;
+  gap: 24px;
 }
-.icon-customers {
+
+.customers-list-item {
+width: calc((100% - 120px) / 6);
+height: 88px;
+}
+
+.customers-list-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 168px;
-  height: 88px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--lightslate);
   border-radius: 4px;
-  border: 1px solid var(--lightslate, #8E8F99);
-  fill: #8E8F99;
-  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  fill: var(--lightslate);
+
 }
-.icon-customers:hover,
-.icon-customers:focus {
+.customers-list-link:hover,
+.customers-list-link:focus {
   fill: var(--ocean);
   border-color: var(--ocean);
 }
@@ -443,12 +457,17 @@ transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
   display: block;
   width: calc((100% - 24px * 2) / 3);
   margin: 0 auto;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 .project-list-img {
+  display: block;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-list-img:focus {
-  transform: translateY(0%);
+  box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08), 0px 1px 1px rgba(46, 47, 66, 0.16), 0px 2px 1px rgba(46, 47, 66, 0.08);
 }
 
 .project-text {
@@ -501,7 +520,7 @@ transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
 }
   
 .project-list-item:hover .overlay {
-  transform: translateY(0);
+  transform: translateY(0%);
 }
 .overlay-text {
   line-height: 1.5; 
@@ -563,22 +582,30 @@ transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
   align-items: baseline;
   
 }
-.icon-footer {
+.icon-list-footer {
+  display: flex;
+  gap: 16px;
   margin: 0 auto;
+
 }
-.icon-link-footer {
+.icon-link-footer{
+  width: 40px;
+  height: 40px;
+}
+.footer-list-link {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  fill: var(--cloud);
   background-color: var(--iris);
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  fill: var(--cloud);
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.icon-link-footer:hover,
-.icon-link-footer:focus {
+.footer-list-link:hover,
+.footer-list-link:focus {
   background-color: #31D0AA;
 }
 
@@ -604,6 +631,7 @@ transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(46, 47, 66, 0.4);
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal {
@@ -636,9 +664,9 @@ transition:color 250ms cubic-bezier(0.4, 0, 0.2, 1),
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1); 
 
 }
-.modal-btn:hover {
-  background-color: var(--ocean);
-  background-color: var(--ocean);
+.modal-btn:hover
+.modal-btn:focus {
+  background-color: #404bbf;
   border: none;
 }
 .modal-btn-icon {
