@@ -531,10 +531,14 @@ height: 88px;
   
 }
   
-.project-list-item:hover .overlay,
-.project-list-item:focus .overlay {
-  transform: translateY(0%);
-}
+.project-list-item:hover .overlay
+{
+    transform: translateY(0%);
+  }
+.project-list-item:focus .overlay
+{
+    transform: translateY(0%);
+  }
 .overlay-text {
   line-height: 1.5; 
   letter-spacing: 0.02em;
